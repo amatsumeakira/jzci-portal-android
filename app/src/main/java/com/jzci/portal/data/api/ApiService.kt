@@ -50,7 +50,8 @@ class ApiService(private val baseUrl: String) {
 
             when (connection.responseCode) {
                 200 -> {
-                    val data = gson.fromJson(response, Map::class.java)
+                    @Suppress("UNCHECKED_CAST")
+                    val data = gson.fromJson(response, Map::class.java) as Map<String, Any>
                     val studentInfo = parseStudentInfo(data)
                     Result.success(studentInfo)
                 }

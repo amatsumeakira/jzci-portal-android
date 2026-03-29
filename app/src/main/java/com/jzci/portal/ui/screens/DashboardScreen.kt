@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -106,7 +105,7 @@ fun DashboardScreen(username: String?) {
                         }
                     ) {
                         Icon(
-                            Icons.AutoMirrored.Filled.ExitToApp,
+                            Icons.Filled.ExitToApp,
                             contentDescription = "退出",
                             tint = Gray500
                         )
@@ -284,7 +283,7 @@ fun BaseInfoCard(data: BaseInfo, username: String?) {
         iconBgColor = Blue500.copy(alpha = 0.1f)
     ) {
         Column {
-            HorizontalDivider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
+            Divider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
             FieldRow("姓名", data.XM.ifBlank { username })
             FieldRow("学号", data.XSBH)
             FieldRow("性别", data.XBDM_DISPLAY)
@@ -311,7 +310,7 @@ fun BatchInfoCard(data: BatchInfo) {
         iconBgColor = Indigo50
     ) {
         Column {
-            HorizontalDivider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
+            Divider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
             FieldRow("年级", data.XZNJ)
             FieldRow("学院", data.DWDM_DISPLAY)
             FieldRow("专业", data.ZYDM_DISPLAY)
@@ -333,9 +332,9 @@ fun DormInfoCard(data: DormInfo) {
         iconBgColor = Green50
     ) {
         Column {
-            HorizontalDivider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
+            Divider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
             FieldRow("校区", data.XQDM_DISPLAY)
-            FieldRow("楼栋", data.SSDDM_DISPLAY)
+            FieldRow("楼栋", data.SSDM_DISPLAY)
             FieldRow("房间号", data.FJH)
             FieldRow("床位", data.CWH)
             if (data.SFBZ.isNotBlank()) {
@@ -354,7 +353,7 @@ fun ManagerCard(data: ManagerInfo) {
         iconBgColor = Amber50
     ) {
         Column {
-            HorizontalDivider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
+            Divider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
             FieldRow("姓名", data.XM)
             FieldRow("工号", data.ZGH)
             FieldRow("联系电话", data.LXDH)
@@ -373,10 +372,10 @@ fun FamilyCard(family: List<FamilyMember>) {
         iconBgColor = Pink50
     ) {
         Column {
-            HorizontalDivider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
+            Divider(color = Gray100, modifier = Modifier.padding(bottom = 8.dp))
             family.forEachIndexed { index, member ->
                 if (index > 0) {
-                    HorizontalDivider(
+                    Divider(
                         color = Gray100,
                         modifier = Modifier.padding(vertical = 12.dp)
                     )
